@@ -1,32 +1,15 @@
-name: Build Vite React App (Windows)
-
-on:
+name: Test Vite Env Secret Only
+'on':
   push:
     branches:
       - main
-
 jobs:
-  build:
-    runs-on: windows-latest
-
+  log-secret:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Decrypt secret.env.enc file
-        working-directory: ./test-git
-        run: |
-          powershell -ExecutionPolicy Bypass -File decrypt_secret.ps1
+      - name: Log VITE_SECRET_KEY_NEW_TEST_KEY (for testing)
+        run: echo "The secret is $VITE_SECRET_KEY_NEW_TEST_KEY"
         env:
-          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-
-      - name: Install dependencies and build
-        working-directory: ./test-git
-        run: |
-          npm install
-          npm run build
+          VITE_SECRET_KEY_NEW_TEST_KEY: '${{ secrets.VITE_SECRET_KEY_NEW_TEST_KEY }}'
