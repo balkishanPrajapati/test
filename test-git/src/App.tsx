@@ -6,6 +6,10 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
   console.log("github key 🔑 : ", import.meta.env.VITE_SECRET_KEY_NEW_TEST_KEY);
+  console.log(
+    "VITE_SECRET_KEY_NEW_TEST_KEY:",
+    import.meta.env.VITE_SECRET_KEY_NEW_TEST_KEY
+  );
 
   return (
     <>

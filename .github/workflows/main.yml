@@ -5,7 +5,7 @@ name: Test Vite Env Secret Only
       - main
 jobs:
   log-secret:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
