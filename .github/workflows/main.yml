@@ -14,6 +14,6 @@ jobs:
       - name: Secret key test
         run: echo ${{secrets.VITE_SECRET_KEY_NEW_TEST_KEY}}
       - name: variable key test
-        run: echo ${{vars.VITE_SECRET_KEY_NEW_TEST_KEY}}
+        run: echo ${{vars.USERNAME}}
         env:
           VITE_SECRET_KEY_NEW_TEST_KEY: "${{ secrets.VITE_SECRET_KEY_NEW_TEST_KEY }}"
