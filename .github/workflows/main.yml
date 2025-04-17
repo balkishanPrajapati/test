@@ -1,11 +1,10 @@
 name: Test Vite Env Secret Only
-'on':
+"on":
   push:
-    branches:
-      - main
+    branches: [ main ]
 jobs:
   job1:
     runs-on: windows-latest
   steps:
     - name: Set env secret
-      run: 'echo ${{secrets.VITE_SECRET_KEY_NEW_TEST_KEY}}'
+      run: "echo ${{secrets.VITE_SECRET_KEY_NEW_TEST_KEY}}"
